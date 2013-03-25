@@ -225,7 +225,6 @@ class Robot
     pass    = process.env.EXPRESS_PASSWORD
 
     stat    = process.env.EXPRESS_STATIC
-    sockets = process.env.EXPRESS_SOCKETS
 
     # Require express.
     express = require 'express'
@@ -240,10 +239,6 @@ class Robot
 
     # Listen to incoming requests.
     server = app.listen process.env.PORT || 8080
-
-    # Attach socket.io to server if predicate has been set.
-    if sockets
-      @io = (require 'socket.io').listen server
 
     # Expose express app as router.
     @router = app
